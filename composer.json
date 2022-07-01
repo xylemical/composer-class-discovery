@@ -1,0 +1,48 @@
+{
+  "name": "xylemical/composer-class-discovery",
+  "type": "library",
+  "license": "MIT",
+  "description": "Provides class discovery for composer.",
+  "keywords": [
+    "composer-plugin",
+    "discovery"
+  ],
+  "homepage": "https://github.com/xylemical/composer-class-discovery",
+  "autoload": {
+    "psr-4": {
+      "Xylemical\\Composer\\ClassDiscovery\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Xylemical\\Composer\\ClassDiscovery\\": "tests/src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": ">=8.0",
+    "xylemical/composer-discovery": "dev-master",
+    "xylemical/discovery": "dev-master"
+  },
+  "require-dev": {
+    "xylemical/composer-dev-bundle": "^0.1.0",
+    "composer/composer": "^2.3",
+    "mikey179/vfsstream": "^1.6"
+  },
+  "scripts": {
+    "tests": "vendor/bin/phpunit && vendor/bin/phpstan analyse && vendor/bin/phpcs",
+    "test-coverage": "php -dxdebug.mode=coverage vendor/bin/phpunit --coverage-html report"
+  },
+  "extra": {
+    "discovery": [
+      "Xylemical\\Composer\\ClassDiscovery\\ClassDiscovery"
+    ]
+  },
+  "config": {
+    "allow-plugins": {
+      "phpstan/extension-installer": true,
+      "xylemical/composer-discovery": true
+    }
+  }
+}
